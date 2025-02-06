@@ -77,7 +77,7 @@ const FirstTimerPage = () => {
     <div className="main_container first_timer_main_container">
       <div className="form_outer_container">
         <div className="logo_container">
-          <img src={RccgLogo_svg} />
+          <img src={RccgLogo} className="rccg_logo_image"/>
           <img src={EternalLogo} className="eternal_logo_image" />
         </div>
 
