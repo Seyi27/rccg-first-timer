@@ -1,0 +1,10 @@
+.custom_button_style {
+  width: 100%;
+  height: 46px;
+  margin-top: 20px;
+  border: 0;
+  border-radius: 10px;
+  background: linear-gradient(to right, #433590, #1f0bf6);
+  color: white;
+  font-size: medium;
+}
