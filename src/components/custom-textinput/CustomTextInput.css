@@ -22,6 +22,15 @@
   padding: 0 5px 0 5px;
 }
 
+.normal_textarea_input{
+  border: 1px solid #d1d5db;
+  border-radius: 5px;
+  padding: 10px;
+  width: 295px;
+  height: 60px;
+  outline: 0;
+}
+
 .error_textInput {
   border: 1px solid red;
 }
@@ -34,5 +43,9 @@
 @media (max-width: 600px) {
   .normal_textinput {
     width: 95%;
+  }
+
+  .normal_textarea_input{
+    width: 92%;
   }
 }

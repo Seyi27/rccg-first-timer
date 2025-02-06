@@ -9,15 +9,19 @@ import CustomTextInput from "../../components/custom-textinput/CustomTextInput";
 const FirstTimerPage = () => {
   const [fullName, setFullName] = useState("");
   const [email, setEmail] = useState("");
-  const [sex, setSex] = useState("");
   const [phoneNo, setPhoneNo] = useState("");
   const [contactAddress, setContactAddress] = useState("");
 
   const [errorFullName, setErrorFullName] = useState("");
   const [errorEmail, setErrorEmail] = useState("");
-  const [errorSex, setErrorSex] = useState("");
   const [errorPhoneNo, setErrorPhoneNo] = useState("");
   const [errorContactAddress, setErrorContactAddress] = useState("");
+
+  const [selectedGender, setSelectedGender] = useState("");
+
+  const handleGenderChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setSelectedGender(event.target.value);
+  };
 
   const handleTextInput = (key: string, e: string) => {
     switch (key) {
@@ -55,17 +59,6 @@ const FirstTimerPage = () => {
           setErrorPhoneNo("");
         }
         break;
-      case "sex":
-        if (!e.trim()) {
-          setSex("");
-          setErrorSex("Sex cannot be empty");
-        } else if (/^[A-Za-z]+$/.test(e.trim())) {
-          setSex(e.trim());
-          setErrorSex("");
-        } else {
-          setErrorSex("");
-        }
-        break;
       case "contactAddress":
         setContactAddress(e.trim());
         if (!e.trim()) {
@@ -100,6 +93,7 @@ const FirstTimerPage = () => {
             <div className="main_form_container">
               {/* left container */}
               <div>
+                {/* Full Name */}
                 <CustomTextInput
                   name={"fullName"}
                   value={fullName}
@@ -110,6 +104,7 @@ const FirstTimerPage = () => {
 
                 <div style={{ padding: "20px" }} />
 
+                {/* Email */}
                 <CustomTextInput
                   name={"email"}
                   value={email}
@@ -118,19 +113,43 @@ const FirstTimerPage = () => {
                   handleTextInput={handleTextInput}
                 />
 
-                <div style={{ padding: "20px" }} />
+                <div style={{ padding: "10px" }} />
 
-                <CustomTextInput
-                  name={"sex"}
-                  value={sex}
-                  label={"Sex"}
-                  errorMessage={errorSex}
-                  handleTextInput={handleTextInput}
-                />
+                {/* Gender */}
+                <div>
+                  <span className="gender_label_header_text">Gender</span>
+
+                  <div style={{ padding: "3px" }} />
+
+                  <div>
+                    <input
+                      type="radio"
+                      name="gender"
+                      value="male"
+                      checked={selectedGender === "male"}
+                      onChange={handleGenderChange}
+                    />
+                    <label className="gender_label">Male</label>
+                  </div>
+
+                  <div style={{ padding: "3px" }} />
+
+                  <div>
+                    <input
+                      type="radio"
+                      name="gender"
+                      value="female"
+                      checked={selectedGender === "female"}
+                      onChange={handleGenderChange}
+                    />
+                    <label className="gender_label">Female</label>
+                  </div>
+                </div>
               </div>
 
               {/* right container */}
               <div className="right_container">
+                {/* Phone Number */}
                 <CustomTextInput
                   name={"phone"}
                   value={phoneNo}
@@ -141,6 +160,7 @@ const FirstTimerPage = () => {
 
                 <div style={{ padding: "20px" }} />
 
+                {/* Contact Address */}
                 <CustomTextInput
                   name={"contactAddress"}
                   value={contactAddress}

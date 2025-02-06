@@ -46,6 +46,16 @@
   justify-content: space-between;
 }
 
+.gender_label_header_text{
+  font-size: 12px;
+  color: #6b7280;
+}
+
+.gender_label{
+  font-size: 14px;
+  margin-left: 5px;
+}
+
 .proverbs_bible_verse {
   text-align: center;
   color: white;
